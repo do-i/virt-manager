@@ -181,6 +181,10 @@ class vmmVMWindow(vmmGObjectUI):
         vmmEngine.get_instance().increment_window_counter()
         self._refresh_vm_state()
 
+    def toggle_menubar(self):
+        menubar = self.widget("details-menubar")
+        menubar.set_visible(not menubar.get_visible())
+
     def customize_finish(self, src):
         ignore = src
         if self._details.vmwindow_has_unapplied_changes():
