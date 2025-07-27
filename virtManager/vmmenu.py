@@ -100,6 +100,8 @@ class VMActionMenu(_VMMenu):
             self.add(Gtk.SeparatorMenuItem())
             self._add_action(_("_Open"), "show", VMActionUI.show)
 
+        self._add_action(_("_Toggle Menubar"), "menubar", VMActionUI.toggle_menubar)
+
         self.get_accessible().set_name("vm-action-menu")
         self.show_all()
 
@@ -322,3 +324,9 @@ class VMActionUI:
         from .vmwindow import vmmVMWindow
 
         vmmVMWindow.get_instance(src, vm).show()
+
+    @staticmethod
+    def toggle_menubar(src, vm):
+        from .vmwindow import vmmVMWindow
+
+        vmmVMWindow.get_instance(src, vm).toggle_menubar()
